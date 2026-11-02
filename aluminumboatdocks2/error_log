@@ -1,0 +1,27 @@
+[21-Jul-2020 19:33:51 UTC] PHP Parse error:  syntax error, unexpected '.', expecting end of file in /home/waiora3116/public_html/inklinkcreative.com/clients/FLOAT/formmaildealer.php on line 44
+[21-Jul-2020 19:34:59 UTC] PHP Parse error:  syntax error, unexpected '.', expecting end of file in /home/waiora3116/public_html/inklinkcreative.com/clients/FLOAT/formmaildealer.php on line 43
+[21-Jul-2020 19:35:35 UTC] PHP Parse error:  syntax error, unexpected '.', expecting end of file in /home/waiora3116/public_html/inklinkcreative.com/clients/FLOAT/formmaildealer.php on line 41
+[21-Jul-2020 19:35:55 UTC] PHP Parse error:  syntax error, unexpected '.', expecting end of file in /home/waiora3116/public_html/inklinkcreative.com/clients/FLOAT/formmaildealer.php on line 41
+[21-Jul-2020 19:37:25 UTC] PHP Parse error:  syntax error, unexpected 'mail' (T_STRING) in /home/waiora3116/public_html/inklinkcreative.com/clients/FLOAT/formmaildealer.php on line 44
+[21-Jul-2020 19:38:38 UTC] PHP Parse error:  syntax error, unexpected 'mail' (T_STRING) in /home/waiora3116/public_html/inklinkcreative.com/clients/FLOAT/formmaildealer.php on line 44
+[21-Jul-2020 19:39:31 UTC] PHP Parse error:  syntax error, unexpected '.', expecting end of file in /home/waiora3116/public_html/inklinkcreative.com/clients/FLOAT/formmaildealer.php on line 43
+[21-Jul-2020 19:39:59 UTC] PHP Parse error:  syntax error, unexpected 'mail' (T_STRING) in /home/waiora3116/public_html/inklinkcreative.com/clients/FLOAT/formmaildealer.php on line 25
+[21-Jul-2020 19:41:22 UTC] PHP Notice:  Undefined variable: name in /home/waiora3116/public_html/inklinkcreative.com/clients/FLOAT/formmailbizhome.php on line 15
+[21-Jul-2020 20:14:36 UTC] PHP Parse error:  syntax error, unexpected 'mail' (T_STRING) in /home/waiora3116/public_html/inklinkcreative.com/clients/FLOAT/formmaildealer.php on line 25
+[21-Jul-2020 20:14:52 UTC] PHP Notice:  Undefined index: phone in /home/waiora3116/public_html/inklinkcreative.com/clients/FLOAT/formmailcontact.php on line 3
+[21-Jul-2020 20:14:52 UTC] PHP Notice:  Undefined variable: name in /home/waiora3116/public_html/inklinkcreative.com/clients/FLOAT/formmailcontact.php on line 14
+[21-Jul-2020 20:14:52 UTC] PHP Notice:  Undefined variable: name in /home/waiora3116/public_html/inklinkcreative.com/clients/FLOAT/formmailcontact.php on line 17
+[21-Jul-2020 20:18:20 UTC] PHP Notice:  Undefined index: phone in /home/waiora3116/public_html/inklinkcreative.com/clients/FLOAT/formmailcontact.php on line 3
+[21-Jul-2020 20:23:48 UTC] PHP Notice:  Undefined index: phone in /home/waiora3116/public_html/inklinkcreative.com/clients/FLOAT/formmailcontact.php on line 3
+[21-Jul-2020 20:25:30 UTC] PHP Parse error:  syntax error, unexpected 'mail' (T_STRING) in /home/waiora3116/public_html/inklinkcreative.com/clients/FLOAT/formmailcontact.php on line 30
+[21-Jul-2020 20:26:14 UTC] PHP Notice:  Undefined variable: phone in /home/waiora3116/public_html/inklinkcreative.com/clients/FLOAT/formmailcontact.php on line 18
+[21-Jul-2020 20:27:33 UTC] PHP Notice:  Undefined index: message2 in /home/waiora3116/public_html/inklinkcreative.com/clients/FLOAT/formmaildealer.php on line 16
+[21-Jul-2020 20:30:36 UTC] PHP Notice:  Undefined index: message2 in /home/waiora3116/public_html/inklinkcreative.com/clients/FLOAT/formmaildealer.php on line 16
+[21-Jul-2020 20:39:16 UTC] PHP Notice:  Undefined index: message2 in /home/waiora3116/public_html/inklinkcreative.com/clients/FLOAT/formmaildealer.php on line 17
+[21-Jul-2020 20:43:30 UTC] PHP Parse error:  syntax error, unexpected 'mail' (T_STRING) in /home/waiora3116/public_html/inklinkcreative.com/clients/FLOAT/formmaildealer.php on line 53
+[21-Jul-2020 20:43:43 UTC] PHP Notice:  Undefined index: message2 in /home/waiora3116/public_html/inklinkcreative.com/clients/FLOAT/formmaildealer.php on line 17
+[21-Jul-2020 20:44:16 UTC] PHP Notice:  Undefined index: message2 in /home/waiora3116/public_html/inklinkcreative.com/clients/FLOAT/formmaildealer.php on line 17
+[21-Jul-2020 20:59:19 UTC] PHP Notice:  Undefined index: lake in /home/waiora3116/public_html/inklinkcreative.com/clients/FLOAT/formmailquick.php on line 5
+[28-Sep-2020 14:43:31 UTC] PHP Notice:  Undefined index: phone in /home/waiora3116/public_html/inklinkcreative.com/clients/FLOAT/formmailsatis.php on line 10
+[28-Sep-2020 14:43:31 UTC] PHP Notice:  Undefined index: bow in /home/waiora3116/public_html/inklinkcreative.com/clients/FLOAT/formmailsatis.php on line 12
+[28-Sep-2020 14:43:31 UTC] PHP Notice:  Undefined variable: deadline in /home/waiora3116/public_html/inklinkcreative.com/clients/FLOAT/formmailsatis.php on line 44

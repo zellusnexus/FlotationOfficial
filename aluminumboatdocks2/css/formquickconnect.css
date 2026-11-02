@@ -1,0 +1,82 @@
+#formwrapper {
+	text-align: center;
+	padding-top: 50px;
+	padding-left: 30px;
+	padding-bottom: 80px;
+	max-width: 670px;
+	margin: auto auto;
+	}
+	
+label {
+    display: inline-block;
+	width: 1px;
+	text-align: right;
+	margin-right: 10px;
+}
+/*
+input {
+	border: 1px solid #999;
+	height: 30px;
+	padding: 5px;
+	background-color: #fff;	
+	margin-left: 10px;	
+	font-size: 14pt;
+	 font-family: 'Roboto Standard', sans-serif;
+	font-weight: 300;
+	display: inline-block;
+	vertical-align: top;
+	width: 220px;
+}*/
+input[type=text2] {
+	border: 1px solid #999;
+	height: 30px;
+	width: 485px;
+	padding: 5px;
+	background-color: #fff;	
+	margin-left: 10px;	
+	font-size: 14pt;
+	 font-family: 'Roboto Standard', sans-serif;
+	font-weight: 300;
+	display: inline-block;
+	vertical-align: top;
+	margin: auto auto;
+	text-align: left;
+}
+
+textarea {
+	border: 1px solid #999;
+	background-color: #fff;	
+	margin-left: 10px;
+	widtH: 485px;
+	height: 150px;
+	font-size: 14pt;
+	 font-family: 'Roboto Standard', sans-serif;
+	font-weight: 300;
+	padding: 5px;
+	color: #000;
+}
+@media only screen and (max-width : 800px) {
+	textarea, label, input, input[type=text2] {
+	max-width: 70%;
+     }
+}
+
+#submit {
+	background-color: #243c79;
+	width: 180px;
+	height: 50px;
+	float: right;
+	margin-right: 80px;
+	cursor: pointer;
+	color: #fff;
+	font-weight: bold;	
+}
+@media only screen and (max-width : 800px) {
+	#submit {
+		margin-right: 30%;		
+     }
+}
+#submit:hover {
+	background-color: #262262;
+	color: #ed1c24;
+}

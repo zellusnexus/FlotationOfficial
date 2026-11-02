@@ -1,0 +1,729 @@
+<!doctype html>
+<html>
+<head>
+<title>Find a Boat Dock Dealer | Aluminum Boat Docks | Flotation Systems, Inc. | 800-711-1785</title>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<meta name="description" content="Our aluminum docks are designed to perfection and crafted without compromise. A vast array of options and accessories bring your vision to life. Together, we create a dock that’s perpetually beautiful and uniquely yours.">
+    <meta name="robots" content="noodp, noydir">
+	<meta name="robots" content="index,follow">
+    <meta content="2 days" name="revisit-after">
+	<meta content="US-AL" name="geo.region">
+	<meta content="Cullman" name="geo.placename">
+	<meta content="Ink and Link Creative, Huntsville AL" name="author">
+	<meta content="Copyright Flotation Systems, Inc., Cullman, AL" name="copyright">
+    <meta content="en-us" http-equiv="content-language">
+	<link rel="icon" href="">
+    <link rel="canonical" href="https://www.aluminumboatdocks.com/">	
+	<link rel="stylesheet" href="../css/mainsub.css" type="text/css">
+	<link rel="stylesheet" href="../css/menuham.css" type="text/css"> 
+	<link rel="stylesheet" href="../css/finddealer.css" type="text/css"> 
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato|Roboto+Condensed&display=swap">
+	<link rel="stylesheet" href="../css/flexslidersub.css" type="text/css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Muli:wght@300;500;700&display=swap"> 
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false&libraries=places&key=AIzaSyDx5yM7DV6wdnM8MXNtN56JPa4BFN2CFLg"></script> 
+    
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, target-densityDpi=device-dpi">
+	
+<style type="text/css">
+	h2 {
+		font-family: lato;
+		color: #444;
+	}
+	#mainbody {
+		font-size: 14pt;
+		margin-bottom: 70px;
+		padding-bottom: 40px;
+	}
+	#mainbody a {
+		color: #627e81;
+	}
+	#split {
+		max-width: 500px;
+		font-weight: bold;
+		font-size: 16pt;
+	}
+   
+  #pac-input {    
+    background-color: #fff;    
+    font-family: Roboto;    
+    font-size: 15px;    
+    font-weight: 300;    
+    margin-left: 12px;    
+    padding: 0 11px 0 13px;    
+    text-overflow: ellipsis;    
+    width: 400px;    
+  }    
+
+  #pac-input:focus {    
+    border-color: #4d90fe;    
+  }    
+
+  .pac-container {    
+    font-family: Roboto;    
+  }    
+
+  #type-selector {    
+    color: #fff;    
+    background-color: #4d90fe;    
+    padding: 5px 11px 0px 11px;    
+  }    
+
+  #type-selector label {    
+    font-family: Roboto;    
+    font-size: 13px;    
+    font-weight: 300;    
+  }    
+	.ownername {
+		font-size: 12pt;
+		color: #000;
+		margin-left: 20px;
+		margin-bottom: 14px;
+		border-bottom: 1px solid #bcbcbc;
+	}
+	#map {
+		box-sizing: border-box; 
+		width: 100%;
+		margin: auto auto;
+		margin-bottom: 100px;
+		color: #000;
+		padding: 20px;
+	}
+	#map a {
+		color: #627e81;
+		font-weight: bold;
+	}
+	#map_canvas {
+		width: 71%; 
+		height: 650px; 
+		display: inline-block;
+		vertical-align: top;border: 3px solid #627e81;
+
+	}
+	
+	#side_bar {width: 400px; display: inline-block; text-align: left;
+		box-sizing: border-box; 
+		padding-left: 40px;
+		background-color: #e7e7e7;
+		vertical-align: top;
+		padding-top: 20px; 
+		height: 656px;
+		overflow-y: scroll;
+		border: 3px solid #627e81;
+	}
+	
+	#side_bar a {
+		color: #627e81;
+		font-weight: bold;
+	}
+
+	@media only screen and (max-width: 1460px) {
+    #side_bar, #map_canvas {        
+        width: 100%;
+    }
+	}
+	#map_canvas{
+		margin-top: 0px;
+	}
+		
+#side_bar .state-header {
+	font-family: 'Lato', sans-serif !important;
+	color: #000000 !important;
+	background-color: transparent !important;
+	margin: 20px 0 10px 0 !important;
+	font-size: 26px !important;
+	font-weight: bold !important;
+	border-bottom: 2px solid #627e81 !important;
+	border-top: none !important;
+	border-left: none !important;
+	border-right: none !important;
+	padding: 0 0 5px 0 !important;
+	text-align: left !important;
+	line-height: 1.2 !important;
+	letter-spacing: normal !important;
+	text-transform: none !important;
+}
+</style> 
+	
+	
+<script type="text/javascript">     
+
+  var side_bar_html = "";    
+  var gmarkers = [];     
+  var marker;    
+  var map = null;    
+  var t=1;    
+  
+  // Object to store dealers organized by state
+  var dealersByState = {};
+
+function initialize() { 
+
+    // create the map    
+    var myOptions = {    
+        center: new google.maps.LatLng(36.3067, -98.0945),    
+        zoom:5.4,    
+        disableDefaultUI: true,      
+        mapTypeId: google.maps.MapTypeId.ROADMAP     
+    }    
+
+    map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);    
+
+    google.maps.event.addListener(map, 'click', function() {    
+        infowindow.close();    
+    });    
+
+	var point = new google.maps.LatLng(35.535276, -81.035709);    
+    var marker = createMarker(point,"760 Docks, LLC", "Tim & Brittney Guavin", "<b>760 Docks, LLC</b><br>Denver, NC<br>", ["North Carolina"]);
+
+	var point = new google.maps.LatLng(37.81926, -87.64101);    
+    var marker = createMarker(point,"Bar H, LLC", "Jake Bartlett, Tristan Hagan", "<b>Bar H, LLC</b><br>Robards, KY<br>", ["Kentucky"]);
+	
+	var point = new google.maps.LatLng(31.537488,-85.143311);    
+    var marker = createMarker(point,"Big Water Docks", "Shawn Jackson", "<b>Big Water Docks, LLC</b><br>Lake Eufaula / Walter F. George Lake<br>", ["Alabama", "Georgia"]);
+	
+	var point = new google.maps.LatLng(36.596532,-78.559726);    
+    var marker = createMarker(point,"Buggs Island Dock Service", "Mike & Terry Denton", "<b>Buggs Island Dock Service</b><br>Lake Gaston, Lake Chesdin, Leesville Lake, Smith Mountain Lake<br>", ["Virginia"]);
+	
+	var point = new google.maps.LatLng(35.318365,-82.590176);    
+    var marker = createMarker(point,"Construction Specialties & Design Builders","Terry Baker", "<b>Construction Specialties & Design Builders</b><br>North Carolina: Lake Lure, Adger Lake, Toxaway Lake, Lake Glenville, Lake Moss, Summit Lake; South Carolina: Lake Greenwood, Lake Bowen<br>", ["North Carolina", "South Carolina"]);
+
+	var point = new google.maps.LatLng(35.802282,-85.608979);    
+    var marker = createMarker(point,"Dock & Deck Builders","Greg Cotten", "<b>Dock & Deck Builders</b><br>Rock Island: Collins River, Rocky River,Caney Fork River, Center Hill Lake, Tims Ford Lake<br>", ["Tennessee"]);	
+	
+	var point = new google.maps.LatLng(37.315960,-119.548828);    
+    var marker = createMarker(point,"Dock Pro USA ","Daniel Kirby", "<b>Dock Pro USA </b><br>Bass Lake, California<br>", ["California"]);
+	
+	var point = new google.maps.LatLng(36.322217,-84.056773);    
+    var marker = createMarker(point,"Dave & Drew's Docks","Andrew & David Carroll", "<b>Dave & Drew's Docks</b><br>Lake Norris<br>", ["Tennessee"]);	
+	
+	var point = new google.maps.LatLng(36.457608,-82.208393);    
+    var marker = createMarker(point,"Dock Doc 24/7","Jud Rice", "<b>Dock Doc 24/7</b><br>Boone Lake, Watauga Lake, South Holston Lake<br>", ["Tennessee"]);
+	
+	var point = new google.maps.LatLng(38.062041,-83.488000);    
+    var marker = createMarker(point,"Dock Solutions of Kentucky ","Chad Helm", "<b>Dock Solutions of Kentucky </b><br>Central and Eastern Kentucky<br>", ["Kentucky"]);
+	
+	var point = new google.maps.LatLng(34.024224,-86.909817);    
+    var marker = createMarker(point,"Flotation Systems, Inc.", "Melanie Powe", "<b>Flotation Systems, Inc.</b><br>Alabama: Smith Lake, Tallapoosa River; Georgia: Lake Allatoona, Lake Sidney Lanier, Lake Hartwell, Savannah River, Lake Oconee, Lake Sinclair; South Carolina: Clarks Hill / Thurmond Lake, Lake Murray; Tennessee: Lake Normandy; Massachusetts, Rhode Island, Connecticut, and Nationwide<br>", ["Alabama", "Georgia", "South Carolina", "Tennessee", "Massachusetts", "Rhode Island", "Connecticut"]);
+	
+	var point = new google.maps.LatLng(32.635273,-98.286288);    
+    var marker = createMarker(point,"FS Texas, LLC","Caleb Burk", "<b>FS Texas, LLC</b><br>Lake Palo Pinto, Possum Kingdom, Hubbard Creek<br>", ["Texas"]);
+	
+	var point = new google.maps.LatLng(35.664347,-80.289588);    
+    var marker = createMarker(point,"Jarman Piers & Construction", "Jason Jarman", "<b>Jarman Piers & Construction</b><br>High Rock Lake, Badin Lake, Lake Tillery, and more including the James River<br>", ["North Carolina", "Virginia"]);	
+	
+	var point = new google.maps.LatLng(34.079050,-84.570970);    
+    var marker = createMarker(point,"Kirby Construction", "Daniel Kirby", "<b>Kirby Construction</b><br>Douglas, Cherokee Lake, Tennessee<br>", ["Tennessee"]);	
+	
+	var point = new google.maps.LatLng(36.293330,-83.343038);    
+    var marker = createMarker(point,"Kukaro Docks","Tim Cannon", "<b>Kukaro Docks</b><br>Hubert M. Moss Lake<br>", ["Tennessee"]);
+	
+	var point = new google.maps.LatLng(37.649797, -97.452802);    
+    var marker = createMarker(point,"Lakeside Solutions","George Papacek", "<b>Lakeside Solutions</b><br>Wichita, KS<br>", ["Kansas"]);
+
+	var point = new google.maps.LatLng(34.44868,-82.85430);    
+    var marker = createMarker(point,"Legacy Dock Repair LLC","Colin Burris, Brenden Milstead", "<b>Legacy Dock Repair LLC</b><br>Keowee, Hartwell Lake South Carolina<br>", ["South Carolina"]);	
+	
+	var point = new google.maps.LatLng(34.59086, -82.88172);    
+    var marker = createMarker(point,"Legacy Docks & Shoreline; Bennick Enterprises","Stefan Wilson", "<b>Legacy Docks & Shoreline; Bennick Enterprises</b><br>Nebo, NC<br>", ["North Carolina"]);	
+	
+	var point = new google.maps.LatLng(35.16025, -84.87675);    
+    var marker = createMarker(point,"LMH Waterfront Construction, LLC","Matt Fugate", "<b>LMH Waterfront Construction, LLC</b><br>Cleveland, TN<br>", ["Tennessee"]);	
+	
+	var point = new google.maps.LatLng(41.287539,-88.273320);    
+    var marker = createMarker(point,"McCoy Marine","George McCoy", "<b>McCoy Marine</b><br>State of Illinois (with exception of Lake of Egypt & Mill Creek)<br>", ["Illinois"]);
+	
+	var point = new google.maps.LatLng(34.989178,-83.822520);    
+    var marker = createMarker(point,"Precision Docks","Jeff Stamey", "<b>Precision Docks</b><br>North Carolina: Lake Hiwassee, Lake Santeelah, Lake Nantahala, Lake Chatuge, Lake Appalachia, Fontana Lake; Georgia: Lake Alatoona, Lake Burton, Lake Rabun, Lake Nottley, Lake Blue Ridge; Tennessee: Lake Watts Barr<br>", ["North Carolina", "Georgia", "Tennessee"]);	
+	
+	var point = new google.maps.LatLng(38.94800,-89.38356);    
+    var marker = createMarker(point,"Rock-N-Shoreline, Inc.", "Caelin Dhom", "<b>Rock-N-Shoreline, Inc.</b><br>Governor Bond Lake Illinois<br>", ["Illinois"]);
+	
+	var point = new google.maps.LatLng(35.017660,-85.059200);    
+    var marker = createMarker(point,"Tennessee Dock Masters", "Daniel Chambers, Gabriel Bowen", "<b>Tennessee Dock Masters, LLC</b><br>Chickamauga, Nickajack Tennessee<br>", ["Tennessee"]);
+	
+	var point = new google.maps.LatLng(31.02260, -96.486384);    
+    var marker = createMarker(point,"Shepco Development, Inc.", "Matt Hageman", "<b>Shepco Development, Inc.</b><br>Franklin, TX<br>", ["Texas"]);
+	
+	var point = new google.maps.LatLng(33.517480,-87.625810);    
+    var marker = createMarker(point,"Waterfront Solutions, LLC", "Shannon Burnett", "<b>Waterfront Solutions</b><br>Tuscaloosa, Hale County<br>", ["Alabama"]);
+	
+	var point = new google.maps.LatLng(33.006690,-85.133010);    
+    var marker = createMarker(point,"West Georgia Docks, LLC", "Thad Hackley", "<b>West Georgia Docks, LLC</b><br>West Point Lake<br>", ["Georgia"]);
+
+	var point = new google.maps.LatLng(35.189850,-86.113960);    
+    var marker = createMarker(point,"Winchester Boat Dock Co.", "Michael Thomason", "<b>Winchester Boat Dock Co.</b><br>Tims Ford Lake, Woods Reservoir, Normandy Lake<br>", ["Tennessee"]);
+
+    initSearchBox(map, 'pac-input'); 
+	
+	// Build the sidebar HTML organized by state
+	buildSidebarByState();
+	
+	t -=1;
+
+}//----------------INIT END--------------------    
+
+
+ var infowindow = new google.maps.InfoWindow(    
+ {     
+ size: new google.maps.Size(150,50)    
+ });     
+
+ // This function picks up the click and opens the corresponding info window    
+function myclick(i) {    
+	google.maps.event.trigger(gmarkers[i], "click");    
+}    
+
+function initSearchBox(map, controlId) {    
+	// Create the search box and link it to the UI element.    
+	var input = (document.getElementById(controlId));    
+	map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);    
+	var searchBox = new google.maps.places.SearchBox(input);    
+
+	// Listen for the event fired when the user selects an item from the pick list
+	google.maps.event.addListener(searchBox, 'places_changed', function () { 
+		console.log (this)
+		var places = searchBox.getPlaces();    
+
+		if (places.length == 0) {    
+			return;    
+		}    
+
+		//get first place    
+		var place = places[0];    
+
+		var infowindow = new google.maps.InfoWindow(    
+		{     
+		  size: new google.maps.Size(150,50),    
+		  content : place.info    
+		});     
+
+		// Clear existing data
+		dealersByState = {};
+		
+		// Re-add all markers with state info
+		var point = new google.maps.LatLng(35.535276, -81.035709);    
+		var marker = createMarker(point,"760 Docks, LLC", "Tim & Brittney Guavin", "<b>760 Docks, LLC</b><br>Denver, NC<br>", ["North Carolina"]);
+		
+		var point = new google.maps.LatLng(37.81926, -87.64101);    
+		var marker = createMarker(point,"Bar H, LLC", "Jake Bartlett, Tristan Hagan", "<b>Bar H, LLC</b><br>Robards, KY<br>", ["Kentucky"]);
+		
+		var point = new google.maps.LatLng(31.537488,-85.143311);    
+		var marker = createMarker(point,"Big Water Docks", "Shawn Jackson", "<b>Big Water Docks, LLC</b><br>Lake Eufaula / Walter F. George Lake<br>", ["Alabama", "Georgia"]);
+		
+		var point = new google.maps.LatLng(36.596532,-78.559726);    
+		var marker = createMarker(point,"Buggs Island Dock Service", "Mike & Terry Denton", "<b>Buggs Island Dock Service</b><br>Lake Gaston, Lake Chesdin, Leesville Lake, Smith Mountain Lake<br>", ["Virginia"]);
+		
+		var point = new google.maps.LatLng(35.318365,-82.590176);    
+		var marker = createMarker(point,"Construction Specialties & Design Builders","Terry Baker", "<b>Construction Specialties & Design Builders</b><br>North Carolina: Lake Lure, Adger Lake, Toxaway Lake, Lake Glenville, Lake Moss, Summit Lake; South Carolina: Lake Greenwood, Lake Bowen<br>", ["North Carolina", "South Carolina"]);
+		
+		var point = new google.maps.LatLng(35.802282,-85.608979);    
+		var marker = createMarker(point,"Dock & Deck Builders","Greg Cotten", "<b>Dock & Deck Builders</b><br>Rock Island: Collins River, Rocky River,Caney Fork River, Center Hill Lake, Tims Ford Lake<br>", ["Tennessee"]);	
+		
+		var point = new google.maps.LatLng(37.315960,-119.548828);    
+		var marker = createMarker(point,"Dock Pro USA ","Daniel Kirby", "<b>Dock Pro USA </b><br>Bass Lake, California<br>", ["California"]);
+		
+		var point = new google.maps.LatLng(36.322217,-84.056773);    
+		var marker = createMarker(point,"Dave & Drew's Docks","Andrew & David Carroll", "<b>Dave & Drew's Docks</b><br>Lake Norris<br>", ["Tennessee"]);	
+		
+		var point = new google.maps.LatLng(36.457608,-82.208393);    
+		var marker = createMarker(point,"Dock Doc 24/7","Jud Rice", "<b>Dock Doc 24/7</b><br>Boone Lake, Watauga Lake, South Holston Lake<br>", ["Tennessee"]); 	
+		
+		var point = new google.maps.LatLng(38.062041,-83.488000);    
+		var marker = createMarker(point,"Dock Solutions of Kentucky ","Chad Helm", "<b>Dock Solutions of Kentucky </b><br>Central and Eastern Kentucky<br>", ["Kentucky"]);
+		
+		var point = new google.maps.LatLng(34.024224,-86.909817);    
+		var marker = createMarker(point,"Flotation Systems, Inc.", "Melanie Powe", "<b>Flotation Systems, Inc.</b><br>Alabama: Smith Lake, Tallapoosa River; Georgia: Lake Allatoona, Lake Sidney Lanier, Lake Hartwell, Savannah River, Lake Oconee, Lake Sinclair; South Carolina: Clarks Hill / Thurmond Lake, Lake Murray; Tennessee: Lake Normandy; Massachusetts, Rhode Island, Connecticut, and Nationwide<br>", ["Alabama", "Georgia", "South Carolina", "Tennessee", "Massachusetts", "Rhode Island", "Connecticut"]);
+		
+		var point = new google.maps.LatLng(32.635273,-98.286288);    
+		var marker = createMarker(point,"FS Texas, LLC","Caleb Burk", "<b>FS Texas, LLC</b><br>Lake Palo Pinto, Possum Kingdom, Hubbard Creek<br>", ["Texas"]);
+		
+		var point = new google.maps.LatLng(35.664347,-80.289588);    
+		var marker = createMarker(point,"Jarman Piers & Construction", "Jason Jarman", "<b>Jarman Piers & Construction</b><br>High Rock Lake, Badin Lake, Lake Tillery, and more including the James River<br>", ["North Carolina", "Virginia"]);	
+		
+		var point = new google.maps.LatLng(34.079050,-84.570970);    
+		var marker = createMarker(point,"Kirby Construction", "Daniel Kirby", "<b>Kirby Construction</b><br>Douglas, Cherokee Lake, Tennessee<br>", ["Tennessee"]);	
+		
+		var point = new google.maps.LatLng(36.293330,-83.343038);    
+		var marker = createMarker(point,"Kukaro Docks","Tim Cannon", "<b>Kukaro Docks</b><br>Hubert M. Moss Lake<br>", ["Tennessee"]);
+		
+		var point = new google.maps.LatLng(37.649797, -97.452802);    
+		var marker = createMarker(point,"Lakeside Solutions","George Papacek", "<b>Lakeside Solutions</b><br>Wichita, KS<br>", ["Kansas"]);
+		
+		var point = new google.maps.LatLng(34.44868,-82.85430);    
+		var marker = createMarker(point,"Legacy Dock Repair LLC","Colin Burris, Brenden Milstead", "<b>Legacy Dock Repair LLC</b><br>Keowee, Hartwell Lake South Carolina<br>", ["South Carolina"]);	
+		
+		var point = new google.maps.LatLng(34.59086, -82.88172);    
+		var marker = createMarker(point,"Legacy Docks & Shoreline; Bennick Enterprises","Stefan Wilson", "<b>Legacy Docks & Shoreline; Bennick Enterprises</b><br>Nebo, NC<br>", ["North Carolina"]);	
+		
+		var point = new google.maps.LatLng(35.16025, -84.87675);    
+		var marker = createMarker(point,"LMH Waterfront Construction, LLC","Matt Fugate", "<b>LMH Waterfront Construction, LLC</b><br>Cleveland, TN<br>", ["Tennessee"]);	
+		
+		var point = new google.maps.LatLng(41.287539,-88.273320);    
+		var marker = createMarker(point,"McCoy Marine","George McCoy", "<b>McCoy Marine</b><br>State of Illinois (with exception of Lake of Egypt & Mill Creek)<br>", ["Illinois"]);
+		
+		var point = new google.maps.LatLng(34.989178,-83.822520);    
+		var marker = createMarker(point,"Precision Docks","Jeff Stamey", "<b>Precision Docks</b><br>North Carolina: Lake Hiwassee, Lake Santeelah, Lake Nantahala, Lake Chatuge, Lake Appalachia, Fontana Lake; Georgia: Lake Alatoona, Lake Burton, Lake Rabun, Lake Nottley, Lake Blue Ridge; Tennessee: Lake Watts Barr<br>", ["North Carolina", "Georgia", "Tennessee"]);	
+		
+		var point = new google.maps.LatLng(38.94800,-89.38356);    
+		var marker = createMarker(point,"Rock-N-Shoreline, Inc.", "Caelin Dhom", "<b>Rock-N-Shoreline, Inc.</b><br>Governor Bond Lake Illinois<br>", ["Illinois"]);
+		
+		var point = new google.maps.LatLng(35.017660,-85.059200);    
+		var marker = createMarker(point,"Tennessee Dock Masters", "Daniel Chambers, Gabriel Bowen", "<b>Tennessee Dock Masters, LLC</b><br>Chickamauga, Nickajack Tennessee<br>", ["Tennessee"]);
+		
+		var point = new google.maps.LatLng(31.02260, -96.486384);    
+		var marker = createMarker(point,"Shepco Development, Inc.", "Matt Hageman", "<b>Shepco Development, Inc.</b><br>Franklin, TX<br>", ["Texas"]);
+		
+		var point = new google.maps.LatLng(33.517480,-87.625810);    
+		var marker = createMarker(point,"Waterfront Solutions, LLC", "Shannon Burnett", "<b>Waterfront Solutions</b><br>Tuscaloosa, Hale County<br>", ["Alabama"]);
+		
+		var point = new google.maps.LatLng(33.006690,-85.133010);    
+		var marker = createMarker(point,"West Georgia Docks, LLC", "Thad Hackley", "<b>West Georgia Docks, LLC</b><br>West Point Lake<br>", ["Georgia"]);
+		
+		var point = new google.maps.LatLng(35.189850,-86.113960);    
+		var marker = createMarker(point,"Winchester Boat Dock Co.", "Michael Thomason", "<b>Winchester Boat Dock Co.</b><br>Tims Ford Lake, Woods Reservoir, Normandy Lake<br>", ["Tennessee"]);
+
+		// Rebuild sidebar
+		buildSidebarByState();
+		
+		t -=1;
+
+		map.fitBounds(place.geometry.viewport);    
+	});    
+}    
+
+// Function to build sidebar HTML organized by state
+function buildSidebarByState() {
+	side_bar_html = "";
+	
+	// Get sorted state names
+	var states = Object.keys(dealersByState).sort();
+	
+	// Build HTML for each state
+	for (var i = 0; i < states.length; i++) {
+		var state = states[i];
+		side_bar_html += '<div class="state-header">' + state + '</div>';
+		
+		// Add each dealer in this state
+		for (var j = 0; j < dealersByState[state].length; j++) {
+			side_bar_html += dealersByState[state][j];
+		}
+	}
+	
+	// Update the sidebar
+	document.getElementById("side_bar").innerHTML = side_bar_html;
+}
+
+// A function to create the marker and set up the event window function     
+function createMarker(latlng, name, owner, html, states) { 
+	var contentString = html;    
+	var marker = new google.maps.Marker({    
+		position: latlng,    
+		map: map,    
+	});    
+
+	google.maps.event.addListener(marker, 'click', function() {    
+		infowindow.setContent(contentString);     
+		infowindow.open(map,marker);    
+	});    
+
+	// save the info we need to use later for the side_bar    
+	gmarkers.push(marker);    
+	
+	// Create the sidebar HTML for this dealer
+	var dealerHTML = '<a href="javascript:myclick(' + (gmarkers.length-1) + ')">' + name + '<br><div class="ownername">' + owner + '<\/div><\/a>';
+	
+	// Add to each state's array
+	for (var i = 0; i < states.length; i++) {
+		var state = states[i];
+		if (!dealersByState[state]) {
+			dealersByState[state] = [];
+		}
+		dealersByState[state].push(dealerHTML);
+	}
+}    
+
+google.maps.event.addDomListener(window, 'load', initialize);    
+</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+<script type='application/ld+json'>
+{
+  "@context": "http://www.schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Flotation Systems, Inc. Aluminum Boat Docks",
+  "url": "http://www.aluminumboatdocks.com",
+  "description": "Our aluminum docks are designed to perfection and crafted without compromise. A vast array of options and accessories bring your vision to life. Together, we create a dock that’s perpetually beautiful and uniquely yours.",
+  "openingHours": "Mo 08:00-17:00 Tu 08:00-17:00 We 08:00-17:00 Th 08:00-17:00 Fr 08:00-17:00 Sa 08:00-17:00 Su 08:00-17:00",                "telephone": "+1 800-711-1785"
+            }
+        </script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PN8R496R');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HX31WSS3XF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());  gtag('config', 'G-HX31WSS3XF');
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18052292013"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18052292013');
+</script>
+<!-- Google tag (gtag.js) End -->
+
+<script src="https://ftlaunchpad.ai/lptm.js?id=e95bba" async></script>
+<!-- Google Analytics --> <script type="text/javascript" src="../js/menuhamjs.js"></script>
+	<script src="../js/jquery-1.7.2.min.js" type="text/javascript"></script>
+	<script src="../js/jquery.flexslider-min.js" type="text/javascript"></script>
+    <script src="../js/jquery.easing.1.3.js" type="text/javascript"></script>
+    <script src="../js/flexwidget.js" type="text/javascript"></script>
+
+
+</head>
+<body>
+	
+	
+	
+<div id="topbar">
+	<div id="logo">
+                <a href="/"><img src="/images/flotation-logo.jpg" /></a>
+            </div>
+	<div id="breaktop">
+		<div id="navbar">
+			 <div class="topnav" id="myTopnav">
+			  <a href="../index.html" class="active">Home</a>
+				<div class="dropdown">
+					<button class="dropbtn" style="border-right: 1px solid #000;">Dock Styles <img src="../images/arrow.png">
+					  <i class="fa fa-caret-down"></i>
+					</button>
+						<div class="dropdown-content">
+							<a href="#">Choose Your Dock Style</a>
+								<li class="dropdown-submenu">
+									<ul class="dropdown-menu">
+									<a href="../dock-piers-boat-piers-floating-piers/">Piers & Platforms</a>
+									<a href="../gable-roof-covered-boat-docks/">Gable Roof</a>
+									<a href="../hip-roof-covered-boat-docks/">Hip Roof</a>
+									<a href="../sundeck-boat-docks/">Sundecks</a>
+									<a href="../sundeck-combo-boat-docks/">Sundeck Combos</a>
+									<p style="margin-top: -15px; margin-bottom: 0px; padding-top: 0px; padding-bottom: 0px; margin-left: -15px;">__________________</p>
+									<a href="../marina-docks-commercial-boat-docks/">Marina/Commercial</a>
+									<a href="../ada-compliant-docks/">ADA Compliant</a>
+									</ul>
+								</li>
+								<a href="../designer-color-series-boat-docks/">Designer Color Series</a>
+								<a href="#">Specialty Dock Styles</a>
+								<li class="dropdown-submenu">
+									<ul class="dropdown-menu">
+									<a href="../beaumont-series-boat-docks-southern-style/">The Beaumont Series</a>
+									<a href="../lodge-series-boat-docks/">The Lodge</a>
+									
+									</ul>
+								</li>
+								<a href="../fixed-floating-boat-docks/">Anchoring</a>
+								<li class="dropdown-submenu">
+									<ul class="dropdown-menu">
+									<a href="../fixed-boat-docks">Fixed Docks</a>
+									<a href="../floating-boat-dock-systems">Floating Docks</a>
+									</ul>
+								</li>
+								<a href="../lockdry-aluminum-boat-dock-decking/">LockDry<span class="tm-menu">®</span> Marine Decking</a>
+								<li class="dropdown-submenu">
+									<ul class="dropdown-menu">
+									<a href="../lockdry-aluminum-boat-dock-decking/lockdry-faq/">FAQs</a>
+									<a href="../lockdry-aluminum-boat-dock-decking/how-to-order-lockdry-decking/">How To Order</a>
+									</ul>
+								</li>
+						
+							<a href="../flotation-systems-galleries/">Galleries</a>
+						</div>					
+			    </div>
+				<div class="dropdown">
+					<button class="dropbtn" style="border-right: 1px solid #000;">Galleries <img src="../images/arrow.png">
+					  <i class="fa fa-caret-down"></i>
+					</button>
+						<div class="dropdown-content">
+							<a href="../flotation-systems-boat-dock-pier-platform-gallery/">Piers & Platforms</a>
+							<a href="../flotation-systems-gable-roof-boat-dock-gallery/">Gable Roof</a>
+							<a href="../flotation-systems-hip-roof-boat-dock-gallery/">Hip Roof</a>
+							<a href="../flotation-systems-sundeck-boat-dock-gallery/">Sundecks</a>
+							<a href="../flotation-systems-sundeck-combo-boat-dock-gallery/">Sundeck Combos</a>
+							<a href="../flotation-systems-commercial-marina-boat-docks-gallery/">Marina/Commercial</a>
+							<a href="../flotation-systems-ada-compliant-gallery/">ADA Compliant</a>
+							<a href="../flotation-systems-fixed-stationary-dock-gallery/">Fixed/Stationary</a>
+							<a href="../aluminum-boat-dock-video-gallery/">Videos/Brochures</a>
+						</div>					
+			    </div>
+				<div class="dropdown">
+					<button class="dropbtn" style="border-right: 1px solid #000;">Options & Accessories <img src="../images/arrow.png">
+					  <i class="fa fa-caret-down"></i>
+					</button>
+						<div class="dropdown-content">
+							<a href="../options/">Options</a>
+							<a href="../options/#accessories">Accessories</a>
+							<a href="../boat-dock-ramps-gangways/">Ramps/Gangways/Bridges</a>
+							<a href="../custom-dock-design/">Slip Configurations</a>
+							<a href="../dock-color-choices/">Dock Color Choices</a>
+						</div>					
+			    </div>
+				<div class="dropdown">
+					<button class="dropbtn" style="border-right: 1px solid #000;">Decking <img src="../images/arrow.png">
+					  <i class="fa fa-caret-down"></i>
+					</button>
+						<div class="dropdown-content">
+							<a href="../lockdry-aluminum-boat-dock-decking/">LockDry<span class="tm-menu">®</span> Marine Decking</a>
+							<a href="../lockdry-aluminum-boat-dock-decking/lockdry-faq/">FAQs</a>
+							<a href="../lockdry-aluminum-boat-dock-decking/how-to-order-lockdry-decking/">How To Order</a>
+						</div>					
+			    </div>
+				<div class="dropdown">
+					<button class="dropbtn" style="border-right: 1px solid #000;">Tech Specs <img src="../images/arrow.png">
+					  <i class="fa fa-caret-down"></i>
+					</button>
+						<div class="dropdown-content">
+							<a href="../flotation-systems-wavepro-boat-docks/">WavePro&#8482; Technology</a>
+							<a href="../boat-dock-construction/">Materials & Methods</a>
+							<a href="../custom-dock-design/">Slip Configurations</a>							
+							<a href="../fixed-floating-boat-docks/">Anchoring</a>
+								<li class="dropdown-submenu">
+									<ul class="dropdown-menu">
+										<a href="../fixed-boat-docks/">Fixed Docks</a>
+										<a href="../floating-boat-dock-systems/">Floating Docks</a>
+									</ul>
+								</li>
+							<a href="../dock-color-choices/">Dock Color Choices</a>
+							<a href="../lockdry-aluminum-boat-dock-decking/">LockDry<span class="tm-menu">®</span> Marine Decking</a>
+								<li class="dropdown-submenu">
+									<ul class="dropdown-menu">	
+										<a href="../lockdry-aluminum-boat-dock-decking/lockdry-faq/">FAQs</a>
+										<a href="../lockdry-aluminum-boat-dock-decking/how-to-order-lockdry-decking/">How To Order</a>
+									</ul>
+								</li>								
+							<a href="../boat-dock-ramps-gangways/">Ramps/Gangways/Bridges</a>							
+							<a href="../boat-dock-warranty-information/">Warranty Information</a>
+						</div>					
+			    </div>
+				<div class="dropdown">
+					<button class="dropbtn" style="border-right: 1px solid #000;">Dealers <img src="../images/arrow.png">
+					  <i class="fa fa-caret-down"></i>
+					</button>
+						<div class="dropdown-content">
+							<a href="#">Find A Dealer</a>
+							<a href="../become-boat-dock-dealer-flotation-systems/">Become a Flotation Systems Dealer</a>
+							<a href="https://flotationsystems.sharepoint.com/sites/Dealers">Dealer Log-In</a>
+						</div>					
+			    </div>
+				<div class="dropdown">
+					<button class="dropbtn" style="border-right: 1px solid #000;">Contact <img src="../images/arrow.png">
+					  <i class="fa fa-caret-down"></i>
+					</button>
+						<div class="dropdown-content">
+							<a href="../contact-flotation-systems/">Contact Us</a>
+							<a href="../become-boat-dock-dealer-flotation-systems/">Become a Flotation Systems Dealer</a>
+						</div>					
+			    </div>
+					
+				 <a href="../get-boat-dock-quote/" style="border-right: none;"><div id="buttonM">Get A Quote</div></a>
+
+			  <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+			</div> 
+		</div>
+	</div>
+</div>
+<div id="colorbar">
+</div>
+
+<div id="tagline" style="color: #444;">
+		<h1 style="color: #444;">Find A Dealer</h1>
+		<p style="text-align: center; color: #444;">A commitment to service. A wealth of knowledge. A talent for solutions.</p>
+</div>
+
+<div id="break">
+	<div id="mainbody" style="margin-bottom: 0px;">
+		<p>Your dealer is your partner, ready to deliver your premium dock with unmatched service and to assist with the many details of dock installation. Site assessment, design, legal compliance, and more—everything that’s required for a precise and surprisingly easy aluminum dock-buying experience.</p>
+		<p>To find a boat dock dealer near you, use the search form below. If there’s not a dealer on your waterway or near you, please contact us at 1.800.711.1785 or e-mail us at <a href="mailto:info@aluminumboatdocks.com">info@aluminumboatdocks.com</a> and we’ll get you set up with a pro in no time.</p>
+
+		<p style="text-align: center;">WE ARE NOW TAKING ON DEALERS NATIONWIDE – <a href="../become-boat-dock-dealer-flotation-systems/" style="font-weight: bold;">INQUIRE HERE</a></p>
+		
+		<h3 style="text-align: center;">If you can't find your lake listed, please contact Flotation Systems Directly: <a href="../contact-flotation-systems/">Contact Us </a></p>
+	</div>
+		
+
+			<div id="map">
+				<input id="pac-input" class="controls" type="text" placeholder="City, State or Zip Code" style="border: 1px solid #444; height: 40px;">
+				<div id="side_bar"></div>
+				<div id="map_canvas"></div>
+			</div>
+
+	</div>
+</div>
+	
+<div id="breakbox" style="background-color: #f4f4ef;">
+	<div id="designerx">
+		<img src="../images/footer.png">	
+	</div>
+</div>
+
+<div id="copyright">
+  <p style="margin-top: 0px;">Copyright © <script language="JavaScript" type="text/javascript">document.write((new Date()).getFullYear());</script> Flotation Systems, Inc.,<br>All rights reserved.</p>
+	<div id="cwrap">
+		<div id="cthird">
+			<a href="../about-flotation-systems-aluminum-boat-docks/">About Us</a><br>
+			<a href="../custom-dock-design/">Slip Configurations</a><br>
+			<a href="../lockdry-aluminum-boat-dock-decking/">Watertight Decking</a><br>
+			<a href="#">Find A Dealer</a><br>
+		</div>	
+		<div id="cthird">
+			<a href="../get-boat-dock-quote/">Get a Custom Boat Dock Quote</a><br>
+			<a href="../dock-owner-testimonials/">Testimonials</a><br>
+			<a href="../customer-satisfaction-form/">Customer Satisfaction Form</a><br>
+			<a href="../boat-dock-warranty-information/">Warranty Information</a><br>
+		</div>
+		<div id="cthird">
+			<a href="../privacy-policy/">Privacy Policy</a><br>
+			<a href="../aluminumboatdocks-com-site-terms-use/">Site Use</a><br>
+			<a href="../sitemap/">Sitemap</a><br>				
+			<a href="../contact-flotation-systems/">Contact Us</a><br>
+		</div>	
+		
+		<div id="cthird">
+			Connect With Us On Social Media<br>
+			<a href="https://www.facebook.com/FlotationSystems/">
+				<img src="../images/socialmedia/facebook.png"></a>
+			<a href="https://www.pinterest.com/FSBoatDocks/">
+				<img src="../images/socialmedia/pintrest.png"></a>
+			<a href="https://www.youtube.com/user/FlotationSystems">
+				<img src="../images/socialmedia/youtube.png"></a>
+			<a href="https://www.instagram.com/flotationsystems/">
+				<img src="../images/socialmedia/insta.png"></a><br>
+			<p>Business Hours: M-F, 8AM-5PM</p>
+		</div>	
+    </div>
+</div>
+</body>
+
+</html>
